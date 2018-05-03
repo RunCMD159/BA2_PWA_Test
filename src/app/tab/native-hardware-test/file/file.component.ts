@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-file',
@@ -8,6 +8,9 @@ import {Component, OnInit} from '@angular/core';
 export class FileComponent implements OnInit {
 
   fileContent: string;
+
+  @ViewChild('filecontent')
+  public content: ElementRef;
 
   constructor() {
   }
@@ -33,4 +36,11 @@ export class FileComponent implements OnInit {
     myReader.readAsText(file);
   }
 
+  saveToDevice() {
+    console.log('save');
+    const text = this.content.nativeElement.value;
+    const blob = new Blob([text], {type: 'text/plain'});
+    const url = window.URL.createObjectURL(blob);
+    window.open(url);
+  }
 }
