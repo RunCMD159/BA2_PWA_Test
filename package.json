@@ -8,7 +8,8 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "pwa-start":"ng build --prod && cd dist && http-server -p 3000"
   },
   "private": true,
   "dependencies": {
