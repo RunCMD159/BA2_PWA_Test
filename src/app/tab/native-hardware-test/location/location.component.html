@@ -1,5 +1,6 @@
 <div>
   <h2>Geolocation</h2>
-  {{location.latitude}}
-  {{location.longitude}}
+  <button (click)="getGeolocation()">Geodaten anzeigen</button>
+  {{location?.latitude}}
+  {{location?.longitude}}
 </div>

@@ -13,8 +13,12 @@ export class LocationComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  getGeolocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((loc) => {
+        alert(loc.coords.longitude);
         this.location = loc.coords;
         console.log(this.location);
       });
